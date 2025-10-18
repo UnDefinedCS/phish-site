@@ -1,7 +1,7 @@
 function RandomSelection {
-    $letters = @("A","B","C","D","E","F","G")
-    $selected = Get-Random -InputObject $letters -Count 3
-    $combined = ($selected -join "")
+    $letters = @("A","B","C","D","E","F","G");
+    $selected = Get-Random -InputObject $letters -Count 3;
+    $combined = ($selected -join "");
 }
 $kgjv = "HQAaQBtACAAVABvACAATQB5ACAAVAByAGEAcAAuACAASQAgAEwAZQBmAHQAIABBACAAUAByAGUAcwBlAG4AdAAgAFMAbwBtAGUAdwBoAGUAcgBlAC4AIAAuACAALgAiACkA";
 RandomSelection | Out-Null; 
@@ -26,15 +26,15 @@ $kra += $twqn;
 function LoopLogic {
     $x = 0
     for ($i=0; $i -lt 20; $i++) {
-        $x += [Math]::Pow(Get-Random -Minimum 1 -Maximum 5, 2)
+        $x += 4
     }
     $y = $x * 3
 }
 $kra += $hxop;
 $kra += $szmn;
 function RandomMath {
-    $a = Get-Random -Minimum 1 -Maximum 100
-    $b = Get-Random -Minimum 1 -Maximum 100
+    $a = 100
+    $b = 2
     if ($a -gt $b) {
         $c = $a * $b
     } else {
