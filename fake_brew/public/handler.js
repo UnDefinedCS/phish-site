@@ -25,7 +25,7 @@ if (instructText) {
 async function setupCopyables() {
     if (navigator.clipboard) {
         for (const element of document.getElementsByClassName('copyable')) {
-            const button = document.createElement('button');
+            const button = document.getElementById('copyButton');
             button.innerHTML = escapeHTML('📋');
             button.setAttribute('aria-label', 'Copy to clipboard');
 
